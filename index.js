@@ -429,7 +429,7 @@ const PAGE = String.raw`<!doctype html>
 <body>
 <div class="page">
   <header>
-    <h1 id="title">MUSIC.</h1>
+    <h1 id="title">music.</h1>
     <div class="bar">
       <button id="shuffle" type="button" disabled>Shuffle</button>
       <button id="unshuffle" type="button" disabled>Unshuffle</button>
